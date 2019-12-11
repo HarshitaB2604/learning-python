@@ -12,6 +12,7 @@ else:
     word = word.replace("e", "@")
     word = word.replace("s", "$")
     word = word.replace("t", "+")
+    word = word.replace(" ", "")
     
     password = word.capitalize() + passnum
     print("Password: " + password)
