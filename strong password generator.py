@@ -1,5 +1,4 @@
 word = input("Enter a word")
-word = word.lower()
 
 #determines if the password is long enough
 if(len(word) < 8):
@@ -10,9 +9,11 @@ else:
     passnum = input("Enter a number")
     
     word = word.replace("e", "@")
+    
+    #makes the word lower case after recplacing all the e's
+    word = word.lower()
     word = word.replace("s", "$")
     word = word.replace("t", "+")
-    word = word.replace(" ", "")
     
     password = word.capitalize() + passnum
     print("Password: " + password)
