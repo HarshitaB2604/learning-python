@@ -8,7 +8,7 @@ if(phase.isdigit()):
     print("All numbers")
     
 else:
-    for i in range(9):#loop is supposed to check for numbers
+    for i in range(10):#loop is supposed to check for numbers
         
         #finds if the phrase contains a certian number
         numPlace = phase.find(str(i))
