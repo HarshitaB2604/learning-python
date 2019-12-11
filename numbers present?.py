@@ -2,6 +2,7 @@ phase = input("Enter your word or phase: ")
 
 num = False
 numPlace = 0
+numInPhase = False
 
 if(phase.isdigit()):
     print("All numbers")
@@ -15,10 +16,13 @@ else:
         #only if a number in found change num to true
         if(numPlace != -1):
             num = True
+        
         if(num):
-            print("Contains a " + str(numInPhase))
+            print("Contains a " + str(phase[numPlace]))
+            num = False
             
-        num = False
+            numInPhase = True
         
     
-    print("Does not contain numbers")
+    if(numInPhase == False):
+        print("Does not contain numbers")
