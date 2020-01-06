@@ -3,8 +3,9 @@ word2 = input('Second word: ')
 
 #tesing which word comes first alphabetically then 
 #prints the words in alphabetically order in upper case
+
 if(word1 < word2):  
-    print(word1.upper() + "\n" + word2.upper)
+    print(str(word1.upper()) + "\n" + str(word2.upper()))
 else:
-    print(word2.upper() + "\n" + word1.upper)
-    
+    print(str(word2.upper()) + "\n" + str(word1.upper()))
+   
