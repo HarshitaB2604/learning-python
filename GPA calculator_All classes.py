@@ -1,3 +1,5 @@
+import math
+
 #calculates the GPA
 def GPAcalc(g, weight):
     g = g.upper()
@@ -32,11 +34,11 @@ def classTotal(num):
     
     for x in range(num):
         grade = input("Enter your Letter Grade: ")
-    	weighted = int(input("Is the class weighted? (1 = yes, 0 = no) "))
+        weighted = int(input("Is the class weighted? (1 = yes, 0 = no) "))
         
         GPAsum = GPAsum + GPAcalc(grade, weighted)
     
-    GPAtotal = GPAsum/num
+    GPAtotal = (GPAsum/num)*1.0
     
     return GPAtotal
    
@@ -45,4 +47,4 @@ classNum = int(input("How many classes are you taking"))
 
 
 #prints your GPA
-print("Your GPA weight is a " + str(classTotal(classNum)) + ".")
+print("\nYour GPA weight is a " + str(classTotal(classNum)) + ".")
