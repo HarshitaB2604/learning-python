@@ -7,30 +7,56 @@ def leap_year(y):
 
 #determines the number of days in the month
 def number_of_days(month, leap):
-  #if the user enters a invalid month number print an error message
-  if(month < 1 or month > 12):
-    print("Invalid value. Please restart")
-  else if(month >= 8 and month % 2 == 1):
-    numOfDay = 31
-  else if(month > 8 and month % 2 == 0 and month != 2):
-    numOfDay = 30
-  else if(month < 8 and month % 2 == 0):
-    numOfDay = 31
-  else if(month < 8 and month % 2 == 1):
-    numOfDay = 30
+  if(month >= 8 and month % 2 == 1):
+    numofDays = 31
+  elif(month > 8 and month % 2 == 0 and month != 2):
+    numofDays = 30
+  elif(month < 8 and month % 2 == 0):
+    numofDays = 31
+  elif(month < 8 and month % 2 == 1):
+    numofDays = 30
   else:
+    #the number of days in feb in a leap year
     if(leap == 1):
-      numOfDay = 29
+      numofDays = 29
+    #the number of days in feb in a normal year
     else:
-      numOfDay = 28
+      numOfDays = 28
     
+  return numofDays
 
-  return numOfDays
-
-
-#*****MAIN*****#
+''''
+******************************MAIN********************************
+'''
 day = int(input("Please enter a date\nDay: "))
+
+#only if the day is a valid number, between 1 and 31 will it let the user continue
+#otherwise it prints and error message and keeps promting them to enter a valid day
+while(day < 1 or day > 31):
+  print("Error: Please enter a valid day of the month")
+  day = int(input("Please enter a date\nDay: "))
+
 month = int(input("Month: "))
+#makes it so the user enters a valid month
+while(month < 1 or month > 12):
+  print("Error. Please enter a valid month number")
+  month = int(input("Month: "))
+
 year = int(input("Year: "))
 
+
+
 #gives the user the menu
+menu = int(input("Please choose an option from the menu \nMenu:\n1)\tCalculate the number of days in the given month.\n2)\tCalculate the number of days left in the given year. \n"))
+
+#routes the patch for the certain menu choice or return Invalid if it is not one of the choices
+while(menu < 1 or menu > 2):
+  print("Invalid. Please choose an option from the Menu")
+  
+  #gives the user the menu
+  menu = int(input("Please choose an option from the menu \nMenu:\n1)\tCalculate the number of days in the given month.\n2)\tCalculate the number of days left in the given year. \n"))
+
+#calculates the days in the month if the user chose 1
+if(menu == 1):
+  #run the number of days function and use the month and the value from the leap year function incase month is feb
+  print(number_of_days(month, leap_year(year)))
