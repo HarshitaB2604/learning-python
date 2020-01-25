@@ -7,13 +7,13 @@ def leap_year(y):
 
 #determines the number of days in the month
 def number_of_days(month, leap):
-  if(month >= 8 and month % 2 == 1):
+  if(month < 8 and month % 2 == 1):
     numofDays = 31
-  elif(month > 8 and month % 2 == 0 and month != 2):
+  elif(month < 8 and month % 2 == 0 and month != 2):
     numofDays = 30
-  elif(month < 8 and month % 2 == 0):
+  elif(month >= 8 and month % 2 == 0):
     numofDays = 31
-  elif(month < 8 and month % 2 == 1):
+  elif(month >= 8 and month % 2 == 1):
     numofDays = 30
   else:
     #the number of days in feb in a leap year
@@ -25,6 +25,19 @@ def number_of_days(month, leap):
     
   return numofDays
 
+#calculates the number of days left in the year
+def days_left(d, m, leap): #asks for day, month, and wheater its a leap year
+    #calculate the days in the monhts left
+    days_in_months = 0
+    for monthNum in range(m+1, 13):
+        days_in_months = days_in_months + number_of_days(monthNum, leap)
+
+    #calculate the days left in the currect month
+    days_in_month = number_of_days(m, leap) - d #subtract the total days in this month by that date
+
+    daysLeft = days_in_month + days_in_months
+    
+    return daysLeft
 ''''
 ******************************MAIN********************************
 '''
@@ -58,5 +71,8 @@ while(menu < 1 or menu > 2):
 
 #calculates the days in the month if the user chose 1
 if(menu == 1):
-  #run the number of days function and use the month and the value from the leap year function incase month is feb
-  print(number_of_days(month, leap_year(year)))
+    #run the number of days function and use the month and the value from the leap year function incase month is feb
+    print(number_of_days(month, leap_year(year)))
+
+else:
+    print(days_left(day, month, leap_year(year)))
