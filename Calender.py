@@ -21,7 +21,7 @@ def number_of_days(month, leap):
       numofDays = 29
     #the number of days in feb in a normal year
     else:
-      numOfDays = 28
+      numofDays = 28
     
   return numofDays
 
