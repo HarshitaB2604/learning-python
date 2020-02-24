@@ -102,7 +102,7 @@ eventYear = []
 event = ""
 while(event != "NO"):
   addEvent(eventName, eventMonth, eventDay, eventYear)
-  event = "Do you want to enter another date? NO to stop."
+  event = input("Do you want to enter another date? NO to stop.")
 
 #print the events
 print("******************** List of Events ********************")
