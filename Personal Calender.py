@@ -31,9 +31,34 @@ def printEvents(arrayName, arrayMonth, arrayDay, arrayYear):
 def printMonth(monthSelect, arrayName, arrayMonth, arrayDay, arrayYear):
   #prints the events in a specific month
   monthSelect = monthName(monthSelect)
-  
-  #this will give use the first location where the month shows up in the array
-  print(arrayMonth.index(monthSelect))
+  #finds the first place the month is in the array; returns -1 if not found
+  while True:
+     try:
+         found = arrayMonth.index(monthSelect)
+         break
+     except ValueError:
+         found = -1
+         break
+
+  while(found != -1):
+    #printing the events 
+    print(arrayName[found] + "\n" + "Date: " + arrayMonth[found] + " " + arrayDay[found] + ", " + arrayYear[found])
+
+    #remove that event from the array
+    arrayName.pop(found)
+    arrayMonth.pop(found)
+    arrayDay.pop(found)
+    arrayYear.pop(found)
+
+    #finds the first place the month is in the array; returns -1 if not found
+    while True:
+      try:
+          found = arrayMonth.index(monthSelect)
+          break
+      except ValueError:
+          found = -1
+          break
+
 
 
 #other supporting functions
