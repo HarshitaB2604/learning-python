@@ -22,17 +22,19 @@ def addEvent(name, month, day, year):
   day.append(str(dayInput))
   year.append(str(yearInput))
 
-'''
 def printEvents(arrayName, arrayMonth, arrayDay, arrayYear):
   #takes in the four arrays and prints thier contents
   for name in range(len(arrayName)):
     print(arrayName[name])
-    print("Date: " + arrayMonth[name] + arrayDay[name] + ", " + arrayYear[name])
+    print("Date: " + arrayMonth[name] + " " + arrayDay[name] + ", " + arrayYear[name])
 
-def printMonth(monthNum, arrayName, arrayMonth, arrayDay, arrayYear):
+def printMonth(monthSelect, arrayName, arrayMonth, arrayDay, arrayYear):
   #prints the events in a specific month
+  monthSelect = monthName(monthSelect)
   
-'''
+  #this will give use the first location where the month shows up in the array
+  print(arrayMonth.index(monthSelect))
+
 
 #other supporting functions
 def monthName(num):
@@ -109,9 +111,11 @@ while(event != "NO"):
 
 #print the events
 print("******************** List of Events ********************")
+printEvents(eventName, eventMonth, eventDay, eventYear)
 
 #print events in a specific month
 monthNum = int(input("What month would you like to see? (Enter the month number) "))
 print("\n\n")
 print("********** Events in " + monthName(monthNum) + " **********")
+printMonth(monthNum, eventName, eventMonth, eventDay, eventYear)
 
