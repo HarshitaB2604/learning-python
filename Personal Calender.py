@@ -18,19 +18,18 @@ def addEvent(name, month, day, year):
 
   #adds the event to the arrays
   name.append(nameInput)
-  month.append(monthName(monthInput))
-  day.append(str(dayInput))
-  year.append(str(yearInput))
+  month.append(monthInput)
+  day.append(dayInput)
+  year.append(yearInput)
 
 def printEvents(arrayName, arrayMonth, arrayDay, arrayYear):
   #takes in the four arrays and prints thier contents
   for name in range(len(arrayName)):
     print(arrayName[name])
-    print("Date: " + arrayMonth[name] + " " + arrayDay[name] + ", " + arrayYear[name])
+    print("Date: " + monthName(arrayMonth[name]) + " " + str(arrayDay[name]) + ", " + str(arrayYear[name]))
 
 def printMonth(monthSelect, arrayName, arrayMonth, arrayDay, arrayYear):
-  #prints the events in a specific month
-  monthSelect = monthName(monthSelect)
+
   #finds the first place the month is in the array; returns -1 if not found
   while True:
      try:
@@ -42,7 +41,7 @@ def printMonth(monthSelect, arrayName, arrayMonth, arrayDay, arrayYear):
 
   while(found != -1):
     #printing the events 
-    print(arrayName[found] + "\n" + "Date: " + arrayMonth[found] + " " + arrayDay[found] + ", " + arrayYear[found])
+    print(arrayName[found] + "\n" + "Date: " + monthName(arrayMonth[name]) + " " + str(arrayDay[name]) + ", " + str(arrayYear[name]))
 
     #finds the next place the month is in the array; returns -1 if not found
     while True:
@@ -86,11 +85,17 @@ def monthName(num):
 
 def leap_year(y):
   #determins if the year is a leap year
-
   if(y % 4 == 0):
+    #test the wierd leap year codition
+    if(y % 100 == 0):
+      if(y % 400 == 0):
+        return 1
+      
+      return 0
+    #for normal leap years
     return 1
-  else:
-    return 0
+     
+  return 0
 
 def checkDays(month, leap):
   #determines the number of days in the month
@@ -151,4 +156,3 @@ if(found != -1):
   print("\n\n")
   print("********** Events in " + monthName(monthNum) + " **********")
   printMonth(monthNum, eventName, eventMonth, eventDay, eventYear)
-
