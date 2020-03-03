@@ -41,7 +41,7 @@ def printMonth(monthSelect, arrayName, arrayMonth, arrayDay, arrayYear):
 
   while(found != -1):
     #printing the events 
-    print(arrayName[found] + "\n" + "Date: " + monthName(arrayMonth[name]) + " " + str(arrayDay[name]) + ", " + str(arrayYear[name]))
+    print(arrayName[found] + "\n" + "Date: " + monthName(arrayMonth[found]) + " " + str(arrayDay[found]) + ", " + str(arrayYear[found]))
 
     #finds the next place the month is in the array; returns -1 if not found
     while True:
@@ -142,11 +142,10 @@ monthNum = int(input("What month would you like to see? (Enter the month number)
 
 #checks if the month entered is in the array
 #prints the events in a specific month
-monthSelect = monthName(monthNum)
 #finds the first place the month is in the array; returns -1 if not found
 while True:
     try:
-      found = eventMonth.index(monthSelect)
+      found = eventMonth.index(monthNum)
       break
     except ValueError:
       found = -1
