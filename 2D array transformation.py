@@ -64,7 +64,6 @@ a.append([0, 2, 2, 0, 0])
 a.append([0, 2, 0, 2, 0])
 a.append([0, 2, 0, 0, 2])
 
-ar = a
 flipHorizontal(a)
-print("\n\n")
+print("\n")
 flipVertical(a)
