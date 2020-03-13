@@ -1,3 +1,4 @@
+import copy
 #***************FUNTIONS**************
 def printArray(array):
   #prints the 2D array properly
@@ -11,47 +12,47 @@ def flipHorizontal(ar):
   #flips the array horizontally
 
   #make a copy of the array and process that
-  newAr = ar
+  newArH = copy.deepcopy(ar)
  
-  for row in range(len(newAr)):
-    switch = len(newAr[0]) - 1
+  for row in range(len(newArH)):
+    switch = len(newArH[0]) - 1
     
     #flip the array horizontally
-    for col in range(int(len(newAr[0])/2)):
-      temp = newAr[row][col]
-      newAr[row][col] = newAr[row][switch]
-      newAr[row][switch] = temp
+    for col in range(int(len(newArH[0])/2)):
+      temp = newArH[row][col]
+      newArH[row][col] = newArH[row][switch]
+      newArH[row][switch] = temp
       switch = switch - 1
 
   #print the new Array
-  printArray(newAr)
+  printArray(newArH)
 
 def flipVertical(ar):
   #flips the array vertically
 
   #make a copy of the array and process that
-  newAr = ar
+  newArV = copy.deepcopy(ar)
   
-  switch = len(newAr) - 1
+  switch = len(newArV) - 1
   
-  '''
-  if(len(newAr) % 2 == 1):
-    for row in range(int((len(newAr) - 1)/2)):
+  
+  if(len(newArV) % 2 == 1):
+    for row in range(int((len(newArV) - 1)/2)):
       #swaps the top and bottom rows then moves closer to the center
-      temp = newAr[row]
-      newAr[row] = newAr[switch]
-      newAr[switch] = temp
+      temp = newArV[row]
+      newArV[row] = newArV[switch]
+      newArV[switch] = temp
       switch = switch - 1
   else:
-    for row in range(int(len(newAr) /2)):
+    for row in range(int(len(newArV) /2)):
       #swaps the top and bottom rows then moves closer to the center
-      temp = newAr[row]
-      newAr[row] = newAr[switch]
-      newAr[switch] = temp
+      temp = newArV[row]
+      newArV[row] = newArV[switch]
+      newArV[switch] = temp
       switch = switch - 1
-  '''
+  
   #print the array
-  printArray(newAr)
+  printArray(newArV)
 
 #******************MAIN***************
 
@@ -63,6 +64,7 @@ a.append([0, 2, 2, 0, 0])
 a.append([0, 2, 0, 2, 0])
 a.append([0, 2, 0, 0, 2])
 
+ar = a
 flipHorizontal(a)
 print("\n\n")
 flipVertical(a)
