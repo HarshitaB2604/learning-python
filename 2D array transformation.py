@@ -64,6 +64,7 @@ a.append([0, 2, 2, 0, 0])
 a.append([0, 2, 0, 2, 0])
 a.append([0, 2, 0, 0, 2])
 
+printArray(a)
 flipHorizontal(a)
-print("\n")
+
 flipVertical(a)
