@@ -1,10 +1,19 @@
 class Rectangle:
-
+    '''
+    built-int methods
+    '''
     #method to assign the lenght and width of the reactangle
     def __init__(self, length = 0 , width = 0):
         self.length = length
         self.width = width
-        
+
+    #change the way the class prints
+    def __repr__(self):
+        return "Reactangle with length " + str(self.length) + " and width " + str(self.width)
+    
+    '''
+    additional methods
+    '''   
     #method will calculate the area of the reactangle   
     def get_area(self):
         return self.length*self.width
@@ -15,9 +24,7 @@ class Rectangle:
 
 
 rect = Rectangle(4, 6)
-print(rect.length)
-print(rect.width)
-print("Area: " + str(rect.get_area()))
-print("Perimeter: " + str(rect.get_perimeter()))
+print(rect)
 
 rect2 = Rectangle()
+print(rect2)
