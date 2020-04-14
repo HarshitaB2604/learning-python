@@ -1,5 +1,14 @@
 import random
 
+def find(ar, val):
+    while True:
+        try:
+            found = ar.index(val)
+            break
+        except ValueError:
+            found = -1
+            break
+        
 class NameHat():
     #create empt hat of names
     def __init__(self):
@@ -13,20 +22,13 @@ class NameHat():
             
         return names
     
+    #adds a name to the hat if it isn't already there
     def insert_name(self, n):
-        while True:
-            try:
-                found = self.hat.index(n)
-                break
-            except ValueError:
-                found = -1
-                break
-            
-        if(found == -1):
+        if(find(self.hat, n) == -1):
             self.hat.append(n)
 
 
-name = NameHat.insert_name("Honey")
+names = NameHat()
+names.insert_name("John")
 
-
-print(name)
+print(names)
