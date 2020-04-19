@@ -20,6 +20,22 @@ class Rectangle:
     #adds the widths and lengths of two recangles to get a new recangle
     def __add__(self, other):
         return Rectangle(self.length + other.length, self.width + other.width)
+        
+    #subtracts the widths and lengths of the recangles to get a new rectangle
+    def __sub__(self, other):
+        #subtracts the smaller of the widths from the other
+        if(self.width < other.width):
+            newWidth = other.width - self.width
+        else:
+            newWidth = self.width - other.width
+        
+        #subtracts the smaller of the lengths from the other
+        if(self.length < other.length):
+            newLength = other.length - self.length
+        else:
+            newLength = self.length - other.length
+
+        return Rectangle(newWidth, newLength)
 
     '''
     additional methods
@@ -36,7 +52,9 @@ class Rectangle:
 rect1 = Rectangle(4, 6)
 rect2 = Rectangle(5, 9)
 rect3 = Rectangle(5, 9)
-print(str(rect1) + "\n" + str(rect2) + "\n" + str(rect3) + "\n")
+print(str(rect1) + "\n" + str(rect2) + "\n" + str(rect3))
 
 rect4 = rect1 + rect2
 print(rect4)
+rect5 = rect3 - rect1
+print(rect5)
