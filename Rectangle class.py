@@ -17,6 +17,10 @@ class Rectangle:
         return self.width == other.width and \
             self.length == other.length
             
+    #adds the widths and lengths of two recangles to get a new recangle
+    def __add__(self, other):
+        return Rectangle(self.length + other.length, self.width + other.width)
+
     '''
     additional methods
     '''   
@@ -34,17 +38,5 @@ rect2 = Rectangle(5, 9)
 rect3 = Rectangle(5, 9)
 print(str(rect1) + "\n" + str(rect2) + "\n" + str(rect3) + "\n")
 
-if(rect1 == rect2):
-    print("Rectangles have the same dimensions!")
-else:
-    print("Rectangles have different dimensions!")
-
-if(rect1 == rect3):
-    print("Rectangles have the same dimensions!")
-else:
-    print("Rectangles have different dimensions!")
-
-if(rect2 == rect3):
-    print("Rectangles have the same dimensions!")
-else:
-    print("Rectangles have different dimensions!")
+rect4 = rect1 + rect2
+print(rect4)
