@@ -1,15 +1,19 @@
 class Rectangle:
+    num_rectangles = 0
     '''
     built-int methods
     '''
-    #method to assign the lenght and width of the reactangle
-    def __init__(self, length = 0 , width = 0):
+    #method to assign the lenght, width, and color of the rectangle
+    def __init__(self, length = 0 , width = 0, color = "black"):
         self.length = length
         self.width = width
+        self.color = color
+        
+        Rectangle.num_rectangles += 1
 
     #change the way the class prints
     def __repr__(self):
-        return "Reactangle with length " + str(self.length) + \
+        return "Rectangle with length " + str(self.length) + \
             " and width " + str(self.width)
         
     #fix definition of objects being equal
@@ -40,21 +44,24 @@ class Rectangle:
     '''
     additional methods
     '''   
-    #method will calculate the area of the reactangle   
+    #method will calculate the area of the rectangle   
     def get_area(self):
         return self.length*self.width
         
-    #method will calculate the perimeter of the reactangle
+    #method will calculate the perimeter of the rectangle
     def get_perimeter(self):
         return self.length*2 + self.width*2
 
 
-rect1 = Rectangle(4, 6)
-rect2 = Rectangle(5, 9)
-rect3 = Rectangle(5, 9)
-print(str(rect1) + "\n" + str(rect2) + "\n" + str(rect3))
+print(Rectangle.num_rectangles)
+rect1 = Rectangle(4, 6, "blue")
+print(Rectangle.num_rectangles)
+print(rect1.color)
 
-rect4 = rect1 + rect2
-print(rect4)
-rect5 = rect3 - rect1
-print(rect5)
+rect2 = Rectangle(5, 9, "red")
+print(Rectangle.num_rectangles)
+print(rect2.color)
+
+rect3 = Rectangle(5, 9)
+print(Rectangle.num_rectangles)
+print(rect3.color)
