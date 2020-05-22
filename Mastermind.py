@@ -51,7 +51,7 @@ def get_guess():
     list_range = True
     dubble_num = True
     # repeat everything until guess meets all conditions
-    while(lenght and list_range and dubble_num):
+    while(lenght or list_range or dubble_num):
       # check the lenght of the guess is only 4 numbers
         while(len(guessL) != 4):
             print("Your guess must consist of 4 numbers!")
