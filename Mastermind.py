@@ -40,7 +40,23 @@ def duplicate(ar):
 
     return dubble
 
-# --------------------------MAIN FUNCTION----------------------------------
+# --------------------------MAIN FUNCTIONS----------------------------------
+
+
+def create_comp_list():
+    # generates the actual list
+    li = []
+    # create a list
+    for i in range(4):
+        li.append(random.randint(1, 7))
+
+    # go through each number to make sure it's unique
+    for inst in range(len(li)):
+        for j in range(len(li)):
+            if(li[inst] == li[j] and inst != j):
+                li[j] = random.randint(1, 7)
+
+    return li
 
 
 def get_guess():
@@ -88,4 +104,64 @@ def get_guess():
     return guessL
 
 
-print(get_guess())
+def check_values(num_arry, guesses):
+    # will hold the key colors that will be returned
+    key = []
+
+    for i in range(len(num_arry)):
+        # this variable checks if the guess isn't in the generated list
+        count = 0
+        for j in range(len(num_arry)):
+            # if the guess is correct and in the right spot
+            if(num_arry[i] == guesses[j] and i == j):
+                key.append("RED")
+                break
+            # if the guess is correct but not in the right spot
+            elif(num_arry[i] == guesses[j] and i != j):
+                key.append("WHITE")
+                break
+            # if the guess isn't in the generated list add 1 to the counter.
+            # if the counter reaches 4 the number will not be in the list
+            else:
+                count += 1
+
+        if(count == 4):
+            key.append("BLACK")
+
+    random.shuffle(key)
+    print(key)
+
+    return check_win(key)
+
+
+def check_win(response_list):
+    # checks if the guess is correct
+    count = 0
+    for i in range(len(response_list)):
+        if(response_list[i] == "RED"):
+            count += 1
+
+    if(count == 4):
+        return True
+    else:
+        return False
+
+
+def play_game():
+    comp_list = create_comp_list()
+    for chance in range(5):
+        guess = get_guess()
+        check = check_values(comp_list, guess)
+
+        # if the guess is correct
+        if(check):
+            print("You Won!")
+            break
+
+    # if the user still hasn't gotten the right guess
+    if(check == False):
+        print("Sorry you lost")
+        print(comp_list)
+
+
+play_game()
