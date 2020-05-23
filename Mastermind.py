@@ -163,5 +163,32 @@ def play_game():
         print("Sorry you lost")
         print(comp_list)
 
+#-------------------------------------Instructions-------------------------------------------------
+print('''
+Your goal is to successfully guess four numbers ranging from 1-7 in the
+correct order. My secret numbers will be a set of four different values.
+-----------------------------------------------------------------------
+Each time you make a guess, I will give a color response of three options:
+BLACK, RED, WHITE
+BLACK = A number you guessed isn't one of the secret numbers.
+WHITE = A number you guessed IS one of the secret numbers, but not in the PLACE where you guessed it
+RED = A number you guessed IS one of the secret numbers, and IS where you guessed it.
+The order of the colors is random. So even if you see RED in the third spot, it does NOT
+mean that your third guess is in the correct place.
+-----------------------------------------------------------------------
+For example, my secret numbers are 4326.
+For your guess, you might say four numbers: 3671.
+You guessed two of the numbers correctly, but in the wrong order!
+My reponse would be 'White' 'White' 'Black' 'Black'
+Which indicates that you got two numbers correct, but not in the right
+locations.
+----------------------------------------------------------------------
+If you had guessed 7316, my response would be
+'Red' 'Red' 'Black' 'Black'
+indicating that you guessed two numbers correct and in the right place,
+and two incorrect numbers.
+----------------------------------------------------------------------
+''')
 
+#-----------------------------GAME-------------------------------------------
 play_game()
